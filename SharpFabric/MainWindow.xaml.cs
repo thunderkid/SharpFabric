@@ -54,7 +54,8 @@ namespace SharpFabric
         int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            QCircle(10, 10 + 10 * times);
+            for (int i = 0; i < 3; i++)
+                QCircle(10+100*i, 10 + 10 * times);
 
             times++;
         }
