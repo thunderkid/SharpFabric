@@ -42,10 +42,10 @@ namespace SharpFabric
 
             public void tellMe(string msg)
             {
-                System.Diagnostics.Debug.WriteLine("got message " + msg);
+           //     System.Diagnostics.Debug.WriteLine("got message " + msg);
                 win.CallbackFromJS(msg);
             }
-            public void tellMeNum(int x)
+            public void tellMeNum(double x)
             {
                 //System.Diagnostics.Debug.WriteLine("got message " + msg);
                 win.CallbackFromJS(x);
@@ -58,9 +58,9 @@ namespace SharpFabric
             System.Diagnostics.Debug.WriteLine("I also got message " + msg);
         }
 
-        public void CallbackFromJS(int x)
+        public void CallbackFromJS(double x)
         {
-            QMove("follower", x, 200);
+            QMove("follower", (int) x,  200);
         }
 
 
