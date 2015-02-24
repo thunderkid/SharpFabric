@@ -50,6 +50,7 @@ namespace SharpFabric
             return result;
         }
 
+
         int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
@@ -63,8 +64,5 @@ namespace SharpFabric
         {
             myBrowser.ExecuteScriptAsync(string.Format("qJsCircle({0},{1})",x,y));
         }
-
-
-
     }
 }
