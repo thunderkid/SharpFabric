@@ -53,10 +53,7 @@ namespace SharpFabric
         int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-           // QCircle(50, 50);
-           // myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
-           // myBrowser.ExecuteScriptAsync("qJsCircle(12,100)");
-            QCircle(10,10+10*times);
+            QCircle(10, 10 + 10 * times);
 
             times++;
         }

@@ -139,9 +139,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="JavaScript\qCircle.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="JavaScript\CanvBody.html" />
     <EmbeddedResource Include="JavaScript\fabric.js" />
   </ItemGroup>
