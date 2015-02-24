@@ -23,6 +23,27 @@ namespace SharpFabric
         public MainWindow()
         {
             InitializeComponent();
+
+            string pus = GetResourceString("SharpFabric.JavaScript.JavaScript1.js");
+        }
+
+
+        string GetResourceString(string id)
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            //var resourceName = "SharpFabric.TextFile1.txt";
+            //var resourceName2 = "CefSharpTest5.JavaScript1.js";
+            //var resourceName3 = "CefSharpTest5.fabricmin.js";
+            string result = "nought";
+
+            string[] names = assembly.GetManifestResourceNames();
+
+            using (System.IO.Stream stream = assembly.GetManifestResourceStream(id))
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
+            {
+                result = reader.ReadToEnd();
+            }
+            return result;
         }
     }
 }
