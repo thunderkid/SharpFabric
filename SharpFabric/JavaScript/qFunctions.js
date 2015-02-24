@@ -1,12 +1,30 @@
 ﻿
 var canvas = new fabric.Canvas('qcanv');
+    canvas.selectionColor = 'rgba(0,255,0,0.3)';
+    canvas.selectionBorderColor = 'green';
+    canvas.selectionLineWidth = 5;
+
 
 function qJsCircle(x, y)
 {
     //alert("weeeee");
-    canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: y, left: x }));
+    var circle = new fabric.Circle({ radius: 20, fill: '#f55', top: y, left: x });
 
-    canvas.selectionColor = 'rgba(0,255,0,0.3)';
-    canvas.selectionBorderColor = 'red';
-    canvas.selectionLineWidth = 5;
+    canvas.add(circle);
+
+    return circle;
 }
+
+
+function qMove(obj, x, y)
+{
+    
+
+
+}
+
+
+
+
+
+
