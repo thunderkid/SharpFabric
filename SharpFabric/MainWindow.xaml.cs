@@ -91,12 +91,14 @@ namespace SharpFabric
                 QCircle(uid, 10, 10 + 10 * times);
                 QCircle("follower", 100, 100);
             }
+            else if (times == 20)
+                myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.GreenSockTest.html"), "http://junky/");
             else if (times > 10)
                 QDelete(uid);
             else
                 QMove(uid, 50, 10 + 10 * times);
 
-            if (times > 3)
+            if (times == 3)
                 QSetDrawingMode();
 
 
