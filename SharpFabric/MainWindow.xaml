@@ -4,6 +4,11 @@
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"        
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="test" Content="Testing" Click="test_Click"></Button>
         <cefSharp:ChromiumWebBrowser Grid.Row="1" x:Name="myBrowser" Address="http://www.google.com.au" />
     </Grid>
 </Window>
