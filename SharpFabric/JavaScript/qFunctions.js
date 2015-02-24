@@ -13,11 +13,16 @@ function qJsCircle(uid, x, y)
     //alert("weeeee");
     var circle = new fabric.Circle({ radius: 20, fill: '#f55', top: y, left: x });
 
+    circle.on('moving', function () { notifyMoving(uid); });
+
+
     canvas.add(circle);
 
     var triangle = new fabric.Triangle({ width: 20, height: 30, fill: 'blue', left: 50, top: 50 });
 
     canvas.add(triangle);
+    things["trianglepunk"] = triangle;
+
 
     things[uid] = circle;
 
@@ -43,7 +48,11 @@ function qJsDelete(uid)
     delete things[uid];
 }
 
+function notifyMoving(uid)
+{
+    things["trianglepunk"].set({ angle: 88 });
 
+}
 
 
 
