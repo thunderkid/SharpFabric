@@ -33,15 +33,24 @@ namespace SharpFabric
                 myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qFunctions.js")); 
             };
 
-            myBrowser.RegisterJsObject("callbackObj", new CallbackObjectForJs());
+            myBrowser.RegisterJsObject("callbackObj", new CallbackObjectForJs() { win = this });
         }
 
         public class CallbackObjectForJs
         {
+            public MainWindow win;
+
             public void tellMe(string msg)
             {
                 System.Diagnostics.Debug.WriteLine("got message " + msg);
+                win.CallbackFromJS(msg);
             }
+        }
+
+
+        public void CallbackFromJS(string msg)
+        {
+            System.Diagnostics.Debug.WriteLine("I also got message " + msg);
         }
 
 
@@ -67,7 +76,10 @@ namespace SharpFabric
             string uid = "lkj3klj";
 
             if (times == 0)
+            {
                 QCircle(uid, 10, 10 + 10 * times);
+                QCircle("follower", 100, 100);
+            }
             else if (times > 10)
                 QDelete(uid);
             else
