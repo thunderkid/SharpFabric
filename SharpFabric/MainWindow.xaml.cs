@@ -27,6 +27,12 @@ namespace SharpFabric
             //string pus = GetResourceString("SharpFabric.JavaScript.JavaScript1.js");
 
             myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.CanvBody.html"), "http://junky/");
+
+            bool pus = myBrowser.IsLoading;
+            bool pus2 = myBrowser.IsLoaded;
+           // myBrowser.
+        //    myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); 
+            myBrowser.FrameLoadEnd += delegate { myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); };
         }
 
 
@@ -45,7 +51,7 @@ namespace SharpFabric
             return result;
         }
 
-        int times = 0;
+        int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
             if (times == 0)
