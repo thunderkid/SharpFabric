@@ -45,6 +45,11 @@ namespace SharpFabric
                 System.Diagnostics.Debug.WriteLine("got message " + msg);
                 win.CallbackFromJS(msg);
             }
+            public void tellMeNum(int x)
+            {
+                //System.Diagnostics.Debug.WriteLine("got message " + msg);
+                win.CallbackFromJS(x);
+            }
         }
 
 
@@ -52,6 +57,12 @@ namespace SharpFabric
         {
             System.Diagnostics.Debug.WriteLine("I also got message " + msg);
         }
+
+        public void CallbackFromJS(int x)
+        {
+            QMove("follower", x, 200);
+        }
+
 
 
         string GetResourceString(string id)

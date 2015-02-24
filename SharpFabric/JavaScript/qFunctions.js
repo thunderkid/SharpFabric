@@ -52,6 +52,7 @@ function notifyMoving(uid)
 {
     var circlex = things[uid].get('left');
     callbackObj.tellMe("we are at " + circlex);
+    callbackObj.tellMeNum(circlex);
     things["trianglepunk"].set({ angle: circlex + 88 });
 
 }
