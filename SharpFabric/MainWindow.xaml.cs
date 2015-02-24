@@ -24,7 +24,9 @@ namespace SharpFabric
         {
             InitializeComponent();
 
-            string pus = GetResourceString("SharpFabric.JavaScript.JavaScript1.js");
+            //string pus = GetResourceString("SharpFabric.JavaScript.JavaScript1.js");
+
+            myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.CanvBody.html"), "http://junky/");
         }
 
 
@@ -43,9 +45,15 @@ namespace SharpFabric
             return result;
         }
 
+        int times = 0;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            // dog.
+            if (times == 0)
+                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js"));
+            else
+                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
+
+            times++;
         }
     }
 }
