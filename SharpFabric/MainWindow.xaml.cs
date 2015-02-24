@@ -51,19 +51,33 @@ namespace SharpFabric
         }
 
 
-        int times = 1;
+        int times = 0;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 3; i++)
-                QCircle(10+100*i, 10 + 10 * times);
+            string uid = "lkj3klj";
+
+            if (times == 0)
+                QCircle(uid, 10, 10 + 10 * times);
+            else
+                QMove(uid, 50, 10 + 10 * times);
+
 
             times++;
         }
 
 
-        void QCircle(int x, int y)
+        void QCircle(string uid, int x, int y)
         {
-            myBrowser.ExecuteScriptAsync(string.Format("qJsCircle({0},{1})",x,y));
+            myBrowser.ExecuteScriptAsync(string.Format("qJsCircle(\"{0}\",{1},{2})",uid,x,y));
         }
+
+        void QMove(string uid, int x, int y)
+        {
+            myBrowser.ExecuteScriptAsync(string.Format("qJsMove(\"{0}\",{1},{2})",uid,x,y));
+
+        }
+
+
+
     }
 }

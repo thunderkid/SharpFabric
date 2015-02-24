@@ -4,23 +4,34 @@ var canvas = new fabric.Canvas('qcanv');
     canvas.selectionBorderColor = 'green';
     canvas.selectionLineWidth = 5;
 
+    var things = {};
 
-function qJsCircle(x, y)
+
+function qJsCircle(uid, x, y)
 {
     //alert("weeeee");
     var circle = new fabric.Circle({ radius: 20, fill: '#f55', top: y, left: x });
 
     canvas.add(circle);
 
+    var triangle = new fabric.Triangle({ width: 20, height: 30, fill: 'blue', left: 50, top: 50 });
+
+    canvas.add(triangle);
+
+    things[uid] = circle;
+
+    circle.set({ left: 200 });
+    canvas.renderAll();
+
+
     return circle;
 }
 
 
-function qMove(obj, x, y)
+function qJsMove(uid, x, y)
 {
-    
-
-
+    things[uid].set({ left: x, top: y });
+    canvas.renderAll();
 }
 
 
