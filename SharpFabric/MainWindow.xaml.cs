@@ -32,6 +32,16 @@ namespace SharpFabric
                 myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); 
                 myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qFunctions.js")); 
             };
+
+            myBrowser.RegisterJsObject("callbackObj", new CallbackObjectForJs());
+        }
+
+        public class CallbackObjectForJs
+        {
+            public void tellMe(string msg)
+            {
+                System.Diagnostics.Debug.WriteLine("got message " + msg);
+            }
         }
 
 
