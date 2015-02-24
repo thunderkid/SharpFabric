@@ -50,7 +50,8 @@ function qJsDelete(uid)
 
 function notifyMoving(uid)
 {
-    things["trianglepunk"].set({ angle: 88 });
+    var circlex = things[uid].get('left');
+    things["trianglepunk"].set({ angle: circlex + 88 });
 
 }
 
