@@ -24,15 +24,13 @@ namespace SharpFabric
         {
             InitializeComponent();
 
-            //string pus = GetResourceString("SharpFabric.JavaScript.JavaScript1.js");
-
             myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.CanvBody.html"), "http://junky/");
 
-            bool pus = myBrowser.IsLoading;
-            bool pus2 = myBrowser.IsLoaded;
-           // myBrowser.
-        //    myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); 
-            myBrowser.FrameLoadEnd += delegate { myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); };
+            // Initialize fabric.js after the DOM is fully loaded. Not sure whether this is the recommended way to ensure this.
+            myBrowser.FrameLoadEnd += delegate 
+            { 
+                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); 
+            };
         }
 
 
@@ -54,10 +52,7 @@ namespace SharpFabric
         int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            if (times == 0)
-                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js"));
-            else
-                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
+            myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
 
             times++;
         }
