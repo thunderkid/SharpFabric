@@ -96,6 +96,9 @@ namespace SharpFabric
             else
                 QMove(uid, 50, 10 + 10 * times);
 
+            if (times > 3)
+                QSetDrawingMode();
+
 
             times++;
         }
@@ -116,5 +119,12 @@ namespace SharpFabric
         {
             myBrowser.ExecuteScriptAsync(string.Format("qJsDelete(\"{0}\")",uid));
         }
+
+        void QSetDrawingMode()
+        {
+            myBrowser.ExecuteScriptAsync("qJsSetDrawingMode()");
+        }
+
+
     }
 }

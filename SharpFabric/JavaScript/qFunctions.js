@@ -48,6 +48,13 @@ function qJsDelete(uid)
     delete things[uid];
 }
 
+
+function qJsSetDrawingMode()
+{
+    canvas.isDrawingMode = true;
+}
+
+
 function notifyMoving(uid)
 {
     var circlex = things[uid].get('left');
