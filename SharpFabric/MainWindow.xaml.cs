@@ -58,6 +58,8 @@ namespace SharpFabric
 
             if (times == 0)
                 QCircle(uid, 10, 10 + 10 * times);
+            else if (times > 10)
+                QDelete(uid);
             else
                 QMove(uid, 50, 10 + 10 * times);
 
@@ -77,7 +79,9 @@ namespace SharpFabric
 
         }
 
-
-
+        void QDelete(string uid)
+        {
+            myBrowser.ExecuteScriptAsync(string.Format("qJsDelete(\"{0}\")",uid));
+        }
     }
 }

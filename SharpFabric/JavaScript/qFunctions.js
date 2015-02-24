@@ -4,6 +4,7 @@ var canvas = new fabric.Canvas('qcanv');
     canvas.selectionBorderColor = 'green';
     canvas.selectionLineWidth = 5;
 
+// dictionary object that stores things added to canvas by a unique id. 
     var things = {};
 
 
@@ -33,6 +34,16 @@ function qJsMove(uid, x, y)
     things[uid].set({ left: x, top: y });
     canvas.renderAll();
 }
+
+
+function qJsDelete(uid)
+{
+    canvas.remove(things[uid]);
+    canvas.renderAll();
+    delete things[uid];
+}
+
+
 
 
 
