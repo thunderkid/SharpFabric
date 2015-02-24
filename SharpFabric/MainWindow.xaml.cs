@@ -30,6 +30,7 @@ namespace SharpFabric
             myBrowser.FrameLoadEnd += delegate 
             { 
                 myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.fabric.js")); 
+                myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qFunctions.js")); 
             };
         }
 
@@ -52,9 +53,21 @@ namespace SharpFabric
         int times = 1;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
+           // QCircle(50, 50);
+           // myBrowser.ExecuteScriptAsync(GetResourceString("SharpFabric.JavaScript.qCircle.js"));
+           // myBrowser.ExecuteScriptAsync("qJsCircle(12,100)");
+            QCircle(10,10+10*times);
 
             times++;
         }
+
+
+        void QCircle(int x, int y)
+        {
+            myBrowser.ExecuteScriptAsync(string.Format("qJsCircle({0},{1})",x,y));
+        }
+
+
+
     }
 }
