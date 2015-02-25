@@ -9,8 +9,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" x:Name="test" Content="Testing" Click="test_Click"></Button>
-        <Grid Grid.Row="1" x:Name="browserHolder">
-         <!--  <cefSharp:ChromiumWebBrowser Grid.Row="1" x:Name="myBrowser" Address="http://www.google.com.au" />--> 
+        <Grid Grid.Row="1" x:Name="browserHolder" Background="Beige">
+            <!--<cefSharp:ChromiumWebBrowser Grid.Row="1" x:Name="myBrowser" Address="http://www.google.com.au" /> -->
         </Grid>
     </Grid>
 </Window>

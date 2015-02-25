@@ -34,8 +34,10 @@ namespace SharpFabric
             CefSharp.Cef.Initialize(settings);
 
             myBrowser = new CefSharp.Wpf.ChromiumWebBrowser();
-            myBrowser.Width = browserHolder.Width - 30; 
-            myBrowser.Height = browserHolder.Height - 30;
+           //myBrowser.Width = browserHolder.Width - 300; 
+            //myBrowser.Height = browserHolder.Height - 30;
+            //myBrowser.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+            //myBrowser.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
 
             browserHolder.Children.Add(myBrowser);
 
