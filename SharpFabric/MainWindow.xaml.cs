@@ -20,9 +20,25 @@ namespace SharpFabric
     /// </summary>
     public partial class MainWindow : Window
     {
+        CefSharp.Wpf.ChromiumWebBrowser myBrowser;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            CefSharp.CefSettings settings = new CefSharp.CefSettings()
+            {
+                //PackLoadingDisabled = true,
+            };
+
+            CefSharp.Cef.Initialize(settings);
+
+            myBrowser = new CefSharp.Wpf.ChromiumWebBrowser();
+            myBrowser.Width = browserHolder.Width - 30; 
+            myBrowser.Height = browserHolder.Height - 30;
+
+            browserHolder.Children.Add(myBrowser);
+
 
             myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.CanvBody.html"), "http://junky/");
 
