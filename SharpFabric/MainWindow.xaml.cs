@@ -39,6 +39,10 @@ namespace SharpFabric
             //myBrowser.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             //myBrowser.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
 
+            // Seems WebBrowser is fine - it's canvas that's a fixed size. Rescale automatically?
+            // http://stackoverflow.com/questions/1664785/resize-html5-canvas-to-fit-window
+            myBrowser.Background = new SolidColorBrush(System.Windows.Media.Colors.CadetBlue);
+
             browserHolder.Children.Add(myBrowser);
 
 
