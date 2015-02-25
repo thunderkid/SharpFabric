@@ -93,6 +93,9 @@ namespace SharpFabric
             }
             else if (times == 20)
                 myBrowser.LoadHtml(GetResourceString("SharpFabric.JavaScript.GreenSockTest.html"), "http://junky/");
+            else if (times > 22)
+                myBrowser.ExecuteScriptAsync(string.Format("tl.pause(); tl.progress({0})", ((double)times-22)/40));
+
             else if (times > 10)
                 QDelete(uid);
             else
